@@ -2,12 +2,13 @@ import React, { ReactElement } from "react";
 import Head from "next/head";
 import { GetStaticProps } from "next";
 import styles from "styles/Home.module.css";
-import { db } from "src/Firebase";
+import { GlobalStyle } from "styles/global.styled";
 interface Props {}
 
 const index = ({}: Props): ReactElement => {
   return (
     <React.Fragment>
+      <GlobalStyle />
       <div className={styles.container}>
         <Head>
           <title>Lazado</title>
