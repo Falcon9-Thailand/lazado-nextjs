@@ -6,11 +6,13 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
   theme: {
     colors: {
       transparent: "transparent",
       current: "currentColor",
+      primary: "#ffca28",
+      secondary: "#ffab91",
       black: colors.black,
       white: colors.white,
       gray: colors.trueGray,
