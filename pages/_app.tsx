@@ -2,14 +2,19 @@ import React from "react";
 import App from "next/app";
 import { AppProps, AppContext } from "next/app";
 import { GlobalStyle } from "../styles/global.styled";
+import { motion } from "framer-motion";
 import "styles/tailwind.css";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps, router }: AppProps) {
   return (
-    <React.Fragment>
+    <motion.div
+      key={router.route}
+      initial={{ opacity: 0, y: 0 }}
+      animate={{ opacity: 1, y: 8 }}
+    >
       <Component {...pageProps} />
       <GlobalStyle />
-    </React.Fragment>
+    </motion.div>
   );
 }
 

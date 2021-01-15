@@ -5,12 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "styles/Home.module.css";
 
-export interface Props {
-  
-}
+export interface Props {}
 
 const index = (props: Props): ReactElement => {
-
   return (
     <div className="relative bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -70,11 +67,10 @@ const index = (props: Props): ReactElement => {
             </nav>
           </div>
 
-          <div className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+          {/* <div className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
             <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
               <div className="px-5 pt-4 flex items-center justify-between">
-                {/* Logo App */}
-                <div></div>
+                <div>Logo App</div>
                 <div className="-mr-2">
                   <button
                     type="button"
@@ -148,7 +144,7 @@ const index = (props: Props): ReactElement => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
             <div className="sm:text-center lg:text-left">
@@ -164,12 +160,14 @@ const index = (props: Props): ReactElement => {
               </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
-                  <a
-                    href="#"
-                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-yellow-400 hover:bg-yellow md:py-4 md:text-lg md:px-10"
-                  >
-                    เริ่มต้นใช้งาน
-                  </a>
+                  <Link href="login">
+                    <a
+                      href="#"
+                      className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-yellow-400 hover:bg-yellow md:py-4 md:text-lg md:px-10"
+                    >
+                      เริ่มต้นใช้งาน
+                    </a>
+                  </Link>
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3">
                   <a
@@ -184,9 +182,9 @@ const index = (props: Props): ReactElement => {
           </main>
         </div>
       </div>
-      <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+      <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 bg-black flex items-center justify-end">
         <img
-          className=" h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
+          className=" object-cover lg:w-full lg:h-full xl:w-full"
           src="/undraw_Online_shopping_re_k1sv.png"
           alt=""
         />
@@ -196,8 +194,6 @@ const index = (props: Props): ReactElement => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  
-
   return {
     props: {},
   };
