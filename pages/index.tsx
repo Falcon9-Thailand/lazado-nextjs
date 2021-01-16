@@ -2,9 +2,7 @@ import React, { ReactElement } from "react";
 import { GetStaticProps } from "next";
 import Link from "next/link";
 
-export interface Props {}
-
-const index = (props: Props): ReactElement => {
+const index = (): ReactElement => {
   return (
     <div className="relative bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">

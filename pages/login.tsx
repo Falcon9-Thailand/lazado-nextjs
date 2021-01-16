@@ -1,9 +1,9 @@
 import React, { ReactElement } from "react";
-import Image from "next/image";
+import useLoginScreen from "src/Hook/useLoginScreen";
 
-interface Props {}
+export default function loginScreen(): ReactElement {
+  const [email, password, handleChange] = useLoginScreen();
 
-export default function loginScreen({}: Props): ReactElement {
   return (
     <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
@@ -23,10 +23,12 @@ export default function loginScreen({}: Props): ReactElement {
                 id="email-address"
                 name="email"
                 type="email"
+                value={email}
                 autoComplete="email"
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent focus:z-10 sm:text-md"
                 placeholder="อีเมล หรือหมายเลขโทรศัพท์มือถือ"
+                onChange={({ target }) => handleChange(target)}
               />
             </div>
             <div>
@@ -37,10 +39,12 @@ export default function loginScreen({}: Props): ReactElement {
                 id="password"
                 name="password"
                 type="password"
+                value={password}
                 autoComplete="current-password"
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent focus:z-10 sm:text-md"
                 placeholder="รหัสผ่าน"
+                onChange={({ target }) => handleChange(target)}
               />
             </div>
           </div>

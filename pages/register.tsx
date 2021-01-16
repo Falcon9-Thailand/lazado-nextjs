@@ -1,7 +1,12 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useState } from "react";
 import Link from "next/link";
+// import useAuth from "src/Hook/useAuth";
+interface Props {}
 
-export default function registerScreen(): ReactElement {
+export default function registerScreen({}: Props): ReactElement {
+  // const { register } = useAuth();
+  const [email, setEmail] = useState<string>("");
+
   return (
     <div className="relative bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -70,11 +75,13 @@ export default function registerScreen(): ReactElement {
                     required
                     className="appearance-none rounded relative block w-full px-3 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent focus:z-10 text-sm"
                     placeholder="อีเมล หรือหมายเลขโทรศัพท์มือถือ"
+                    onChange={({ target: { value } }) => setEmail(value)}
                   />
                 </div>
                 <button
                   type="submit"
                   className="relative ml-3 w-auto flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400"
+                  // onClick={() => register({ email })}
                 >
                   สมัครสมาชิก
                 </button>
