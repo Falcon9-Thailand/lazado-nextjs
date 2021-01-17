@@ -1,31 +1,47 @@
-import React, { useState, useContext, createContext } from "react";
-import firebaseConfigure from "src/Firebase/firebaseConfigure";
-import firebase from "firebase/app";
-import "firebase/auth";
-
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfigure);
-}
+import React, {
+  useState,
+  useContext,
+  useEffect,
+  createContext,
+  ReactNode,
+} from "react";
+import { auth } from "src/Firebase/firebaseConfigure";
 
 const AuthContext = createContext({});
 
-export const ProviderAuth = ({ children }) => {
-  const auth = useProviderAuth();
-  return <AuthContext.Provider value={auth}>{children}</AuthContext.Provider>;
+export const ProviderAuth = ({
+  children,
+}: {
+  children: ReactNode;
+}): JSX.Element => {
+  const providerAuth = useProviderAuth();
+  return (
+    <AuthContext.Provider value={providerAuth}>{children}</AuthContext.Provider>
+  );
 };
 
 export const useProviderAuth = () => {
   const [user, setUser] = useState<null | object>(null);
 
   const signin = ({ email, password }) => {
-    return firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then((res) => {
-        setUser(res.user);
-        return res.user;
-      });
+    return auth.signInWithEmailAndPassword(email, password).then((res) => {
+      setUser(res.user);
+      return res.user;
+    });
   };
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((snapUser) => {
+      if (snapUser) {
+        setUser(snapUser);
+      } else {
+        setUser(null);
+      }
+    });
+
+    return unsubscribe;
+  }, []);
+
   return {
     user,
     signin,
