@@ -20,14 +20,21 @@ export const ProviderAuth = ({
   );
 };
 
+interface signin {
+  email: string;
+  password: string;
+}
+
 export const useProviderAuth = () => {
   const [user, setUser] = useState<null | object>(null);
 
-  const signin = ({ email, password }) => {
-    return auth.signInWithEmailAndPassword(email, password).then((res) => {
-      setUser(res.user);
-      return res.user;
-    });
+  const signin = async ({ email, password }: signin) => {
+    return await auth
+      .signInWithEmailAndPassword(email, password)
+      .then((res) => {
+        setUser(res.user);
+        return res.user;
+      });
   };
 
   useEffect(() => {
