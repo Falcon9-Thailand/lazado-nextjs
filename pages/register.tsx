@@ -1,6 +1,5 @@
 import React, { ReactElement, useState } from "react";
 import Link from "next/link";
-// import useAuth from "src/Hook/useAuth";
 interface Props {}
 
 export default function registerScreen({}: Props): ReactElement {
@@ -81,7 +80,6 @@ export default function registerScreen({}: Props): ReactElement {
                 <button
                   type="submit"
                   className="relative ml-3 w-auto flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400"
-                  // onClick={() => register({ email })}
                 >
                   สมัครสมาชิก
                 </button>

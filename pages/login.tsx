@@ -1,9 +1,6 @@
 import React, { ReactElement } from "react";
-import useLoginScreen from "src/Hook/useLoginScreen";
 
 export default function loginScreen(): ReactElement {
-  const { email, password, handleChange, onSignIn } = useLoginScreen();
-
   return (
     <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
@@ -23,12 +20,10 @@ export default function loginScreen(): ReactElement {
                 id="email-address"
                 name="email"
                 type="email"
-                value={email}
                 autoComplete="email"
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent focus:z-10 sm:text-md"
                 placeholder="อีเมล หรือหมายเลขโทรศัพท์มือถือ"
-                onChange={({ target }) => handleChange(target)}
               />
             </div>
             <div>
@@ -39,12 +34,10 @@ export default function loginScreen(): ReactElement {
                 id="password"
                 name="password"
                 type="password"
-                value={password}
                 autoComplete="current-password"
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent focus:z-10 sm:text-md"
                 placeholder="รหัสผ่าน"
-                onChange={({ target }) => handleChange(target)}
               />
             </div>
           </div>
@@ -79,7 +72,6 @@ export default function loginScreen(): ReactElement {
             <button
               type="button"
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400"
-              onClick={async () => await onSignIn()}
             >
               เข้าสู่ระบบ
             </button>
