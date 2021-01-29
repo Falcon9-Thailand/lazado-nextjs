@@ -17,6 +17,7 @@
     "express": "^4.17.1",
     "firebase": "^8.2.3",
     "framer-motion": "^3.2.1",
+    "mongoose": "^5.11.14",
     "next": "^10.0.5",
     "nookies": "^2.5.1",
     "postcss": "^8.2.4",
