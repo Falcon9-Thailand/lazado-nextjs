@@ -1,6 +1,6 @@
 import React from "react";
 import { AppProps } from "next/app";
-import { GlobalStyle } from "../styles/global.styled";
+import { GlobalStyle } from "styles/global.styled";
 import { motion } from "framer-motion";
 import "styles/tailwind.css";
 

@@ -34,7 +34,9 @@ yarn-error.log*
 .vercel
 
 # Next env
-.env*.local
+.env.local
+.env.production
+.env.test
 
 # Secret
 secrets.json

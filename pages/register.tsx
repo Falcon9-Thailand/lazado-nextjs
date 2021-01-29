@@ -43,7 +43,7 @@ export default function registerScreen({}: Props): ReactElement {
                 >
                   ช่วยเหลือ
                 </a>
-                <Link href="login">
+                <Link href="/login">
                   <a
                     href="#"
                     className="font-medium text-yellow-400 hover:text-yellow-500"

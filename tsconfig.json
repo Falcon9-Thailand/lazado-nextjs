@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "styles/globals.styled.js", "pages/index.tsx", "src/Firebase/firebaseAdmin.ts", "src/Firebase/firebaseAuth.js"  ],
+, "styles/globals.styled.js", "pages/index.tsx",],
   "exclude": [
     "node_modules"
   ]

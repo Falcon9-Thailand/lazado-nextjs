@@ -50,7 +50,7 @@ const index = (): ReactElement => {
                 >
                   ช่วยเหลือ
                 </a>
-                <Link href="login">
+                <Link href="/login">
                   <a
                     href="#"
                     className="font-medium text-yellow-400 hover:text-yellow-500"
@@ -108,9 +108,6 @@ const index = (): ReactElement => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const data = await fetch("http://localhost:3000/api/hello");
-  console.log(await data.json());
-
   return {
     props: {},
   };
