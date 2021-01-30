@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "styles/globals.styled.js", "pages/index.tsx",],
+, "styles/globals.styled.js", "pages/index.tsx", "tailwind.config.js",],
   "exclude": [
     "node_modules"
   ]

@@ -22,6 +22,7 @@ const mongoConnection = async () => {
   */
 
   isConnection = !!db.connection.readyState;
+  console.log("Mongo connection status:" + db.connection.readyState);
 };
 
 export default mongoConnection;

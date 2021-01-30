@@ -1,32 +1,62 @@
 import mongoConnection from "src/MongoDB/mongo.config";
 import { Request as Req, Response as Res } from "express";
+import UserModel, { iUser } from "src/MongoDB/models/userModel";
+const bcrypt = require("bcrypt");
+export interface iRes {
+  success?: boolean;
+  message?: string;
+  data?: any;
+}
 
-import UserModel, { IUser } from "src/MongoDB/models/userModel";
-
+// DB connection
 mongoConnection();
 
-export default async (req: Req, res: Res) => {
-  const { method, body } = req;
-
+export default async ({ body, method }: Req, res: Res) => {
   switch (method) {
     case "GET":
       try {
-        const user = await UserModel.find({});
-        res.status(200).json({ success: true, data: user });
+        let user = await UserModel.find({});
+        res.status(200).json(<iRes>{ success: true, data: user });
       } catch (error) {
-        res.status(400).json({ success: false });
+        res.status(400).json(<iRes>{ success: false, message: error.message });
       }
       break;
     case "POST":
       try {
-        const user = await UserModel.create(body);
+        let {
+          name,
+          username,
+          password,
+          email,
+          phoneNumber,
+          photoURL,
+          verified,
+        }: iUser = body;
 
-        res.status(200).json({ success: true, data: user });
+        let saltRounds: number = 10;
+        let hashPassword = bcrypt.hashSync(password, saltRounds);
+        await UserModel.create({
+          name,
+          username,
+          password: hashPassword,
+          email,
+          photoURL,
+          phoneNumber,
+          verified,
+        })
+          .then((user) => {
+            res.status(200).json(<iRes>{ success: true, data: user });
+          })
+          .catch((error) => {
+            res
+              .status(400)
+              .json(<iRes>{ success: false, message: error.message });
+          });
       } catch (error) {
-        res.status(400).json({ success: false });
+        res.status(400).json(<iRes>{ success: false, message: error.message });
       }
       break;
     default:
-      res.status(400).json({ success: false });
+      res.status(400).json(<iRes>{ success: false });
   }
 };
