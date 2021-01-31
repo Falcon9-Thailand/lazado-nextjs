@@ -1,6 +1,12 @@
 import React, { ReactElement } from "react";
+import { NextPage } from "next";
 
-export default function loginScreen(): ReactElement {
+// Hook
+import useLogin from "src/Hook/useLogin";
+
+const loginScreen: NextPage = (): ReactElement => {
+  const { username, password, _handleChange, _login } = useLogin();
+
   return (
     <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
@@ -9,7 +15,7 @@ export default function loginScreen(): ReactElement {
             LAZADO
           </h2>
         </div>
-        <form className="mt-12 space-y-6" action="#" method="POST">
+        <form className="mt-12 space-y-6" method="POST">
           <input type="hidden" name="remember" value="true" />
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
@@ -18,12 +24,14 @@ export default function loginScreen(): ReactElement {
               </label>
               <input
                 id="email-address"
-                name="email"
+                name="username"
                 type="email"
+                value={username}
                 autoComplete="email"
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent focus:z-10 sm:text-md"
                 placeholder="อีเมล หรือหมายเลขโทรศัพท์มือถือ"
+                onChange={_handleChange}
               />
             </div>
             <div>
@@ -34,10 +42,12 @@ export default function loginScreen(): ReactElement {
                 id="password"
                 name="password"
                 type="password"
+                value={password}
                 autoComplete="current-password"
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent focus:z-10 sm:text-md"
                 placeholder="รหัสผ่าน"
+                onChange={_handleChange}
               />
             </div>
           </div>
@@ -48,7 +58,7 @@ export default function loginScreen(): ReactElement {
                 id="remember_me"
                 name="remember_me"
                 type="checkbox"
-                className="h-4 w-4  text-yellow-400 focus:ring-yellow-400 border-gray-300 rounded"
+                className="h-4 w-4  text-primary-400 focus:ring-primary-400 border-gray-300 rounded"
               />
               <label
                 htmlFor="remember_me"
@@ -61,7 +71,7 @@ export default function loginScreen(): ReactElement {
             <div className="text-sm">
               <a
                 href="#"
-                className="font-medium text-yellow-400 hover:text-yellow-300"
+                className="font-medium text-primary-400 hover:text-primary-300"
               >
                 ลืมรหัสผ่าน ?
               </a>
@@ -71,7 +81,8 @@ export default function loginScreen(): ReactElement {
           <div>
             <button
               type="button"
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-primary-400 hover:bg-primary-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-400"
+              onClick={_login}
             >
               เข้าสู่ระบบ
             </button>
@@ -80,4 +91,6 @@ export default function loginScreen(): ReactElement {
       </div>
     </div>
   );
-}
+};
+
+export default loginScreen;

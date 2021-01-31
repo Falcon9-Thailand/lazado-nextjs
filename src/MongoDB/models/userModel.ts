@@ -1,10 +1,16 @@
 import { model, Schema, Document } from "mongoose";
 
-export interface iUser extends Document {
-  name: string;
+export interface iLogin {
   username: string;
   password: string;
+}
+
+export interface iRegister extends iLogin {
+  name: string;
   email: string;
+}
+
+export interface iUser extends iLogin, iRegister, Document {
   photoURL?: string;
   phoneNumber?: string;
   verified: boolean;

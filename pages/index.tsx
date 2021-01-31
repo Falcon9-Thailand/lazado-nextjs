@@ -53,7 +53,7 @@ const index = (): ReactElement => {
                 <Link href="/login">
                   <a
                     href="#"
-                    className="font-medium text-yellow-400 hover:text-yellow-500"
+                    className="font-medium text-primary hover:text-primary-900"
                   >
                     เข้าสู่ระบบ
                   </a>
@@ -79,7 +79,7 @@ const index = (): ReactElement => {
                   <Link href="login">
                     <a
                       href="#"
-                      className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-yellow-400 hover:bg-yellow md:py-4 md:text-lg md:px-10"
+                      className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-yellow md:py-4 md:text-lg md:px-10"
                     >
                       เริ่มต้นใช้งาน
                     </a>
@@ -87,7 +87,7 @@ const index = (): ReactElement => {
                 </div>
                 <div className="md:ml-3">
                   <Link href="/register">
-                    <a className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-yellow-400 bg-yellow-100 hover:bg-yellow-300 hover:text-white md:py-4 md:text-lg md:px-10">
+                    <a className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary bg-gray-100 hover:bg-primary-200 hover:text-white md:py-4 md:text-lg md:px-10">
                       สมัครสมาชิก
                     </a>
                   </Link>
@@ -100,7 +100,7 @@ const index = (): ReactElement => {
       <div className="hidden lg:absolute lg:inset-y-0 lg:right-0 lg:block lg:w-1/2 bg-black items-center justify-end">
         <img
           className=" object-cover lg:w-full lg:h-full xl:w-full"
-          src="/undraw_Online_shopping_re_k1sv.png"
+          src="/undraw_Traveling_re_weve.png"
         />
       </div>
     </div>

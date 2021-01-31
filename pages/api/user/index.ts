@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 export interface iRes {
   success?: boolean;
   message?: string;
-  data?: any;
+  data?: object[] | {};
 }
 
 // DB connection
